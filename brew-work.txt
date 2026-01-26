@@ -1,0 +1,15 @@
+azure-cli
+go
+font-meslo-lg-nerd-font
+jq
+jwt-cli
+lua
+neovim
+node
+opentofu
+podman
+stow
+tree-sitter
+aerospace
+bruno
+podman-desktop

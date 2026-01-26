@@ -1,0 +1,230 @@
+" .ideavimrc is a configuration file for IdeaVim plugin. It uses
+"   the same commands as the original .vimrc configuration.
+" You can find a list of commands here: https://jb.gg/h38q75
+" Find more examples here: https://jb.gg/share-ideavimrc
+
+
+" COMMON SETTINGS ----------------------------------------------
+" Configure space as leader
+let mapleader=" "
+" share clipboard with system
+set clipboard+=unnamed
+set clipboard+=ideaput
+set scrolloff=10
+" Ignore case for searches, but not when there is a capital letter in the search term
+set ignorecase
+set smartcase
+" Do incremental searching.
+set incsearch
+" Highlight search results when jumping through them
+set hlsearch
+" Clear highlights with leader c (before: <Esc>) key
+nmap <leader>c :noh<CR>
+" display absolute and relative line numbers in gutter
+set number relativenumber
+" Don't use Ex mode, use Q for formatting.
+map Q gq
+
+" PLUGINS
+" ----------------------------------------------
+" Navigate in Project Tree
+Plug 'preservim/nerdtree'
+" Highlight copied text
+Plug 'machakann/vim-highlightedyank'
+" Commentary plugin
+Plug 'tpope/vim-commentary
+" find stuff within open file
+Plug 'easymotion/vim-easymotion'
+" set easymotion
+" use f or F to search with two letters in the current and next line
+map <leader><leader>f <Plug>(easymotion-f)
+map <leader><leader>F <Plug>(easymotion-F)
+Plug 'justinmk/vim-sneak'
+" Surround text with braces etc
+Plug 'tpope/vim-surround'
+" Provide 'argument' text object (e.g. 'dia' to delete the argument without comma)
+Plug 'vim-scripts/argtextobj.vim'
+let g:argtextobj_pairs="(:),{:},<:>"
+" Provide 'function' text object (e.g. 'dif' to delete the function body)
+set functiontextobj
+" Which key: show possible motions
+set which-key
+set notimeout
+let g:WhichKey_ShowVimActions = "true"
+" Which key disabled for performance reasons
+let g:WhichKeyDesc_easymotion = "<leader><leader> EasyMotion"
+let g:WhichKey_DefaultDelay = 150
+
+" KEYBOARD MAPPINGS ----------------------------------------------
+" Greatest remap EVER!!
+" in visual mode, with this shortcut, paste onto selection without using the paste buffer
+" (it deletes text selected text into the black hole register)
+vnoremap <leader>p "_dP
+
+""" SCROLLING
+nnoremap <C-d> <C-d>zz
+nnoremap <C-u> <C-u>zz
+
+""" WINDOW MANAGEMENT
+let g:WhichKeyDesc_window_management = "<leader>v Window management"
+map <leader>vh <Action>(HideAllWindows)
+let g:WhichKeyDesc_hide_all_windows = "<leader>vh Hide all Windows"
+map <leader>vt <Action>(ActivateTODOToolWindow)
+let g:WhichKeyDesc_activatetodo = "<leader>vt Activate TODO Tool Window"
+map <leader>ve <Action>(ActivateEndpointsToolWindow)
+let g:WhichKeyDesc_activateendpoints = "<leader>ve Activate Endpoints Tool Window"
+map <leader>vg <Action>(ActivateVersionControlToolWindow)
+let g:WhichKeyDesc_activategitwindow = "<leader>vg Activate Version Control Tool Window"
+map <leader>vwc <Action>(CloseContent)
+let g:WhichKeyDesc_closecurrenteditor = "<leader>vwc Close current editor tab"
+map <leader>vwo <Action>(CloseAllEditorsButActive)
+let g:WhichKeyDesc_closeothereditors = "<leader>vwo Close all other editor tabs"
+let g:WhichKeyDesc_tab_prefix = "<C-w> tab management"
+nmap <C-w>v <Action>(MoveTabRight)
+let g:WhichKeyDesc_move_tab_right = "<C-w>v Move tab to the right"
+nmap <C-w>s <Action>(MoveTabDown)
+nmap <C-w>w <Action>(Unsplit)
+nmap <C-w>H <Action>(MoveEditorToOppositeTabGroup)
+nmap <C-w>L <Action>(MoveEditorToOppositeTabGroup)
+nmap <C-w>J <Action>(MoveEditorToOppositeTabGroup)
+nmap <C-w>K <Action>(MoveEditorToOppositeTabGroup)
+nmap <C-w>< <Action>(StretchSplitToLeft)
+nmap <C-w>> <Action>(StretchSplitToRight)
+nmap <C-w><space> <Action>(MaximizeEditorInSplit)
+
+""" GOTO
+map gs <Action>(FileStructurePopup)
+map gmu <Action>(MethodUp)
+map gmd <Action>(MethodDown)
+map gi <Action>(GotoImplementation)
+map <leader>D <Action>(GotoTypeDeclaration)
+map gb <Action>(Back)
+map gf <Action>(Forward)
+
+""" DISPLAY POPUPS
+let g:WhichKeyDesc_display = "<leader>d Display popup"
+map <leader>dh <Action>(QuickJavaDoc)
+let g:WhichKeyDesc_java_doc = "<leader>dh Display quick JavaDoc"
+map <leader>di <Action>(ShowIntentionActions)
+let g:WhichKeyDesc_intentions = "<leader>di Display intentions"
+map <leader>dt <Action>(QuickImplementations)
+let g:WhichKeyDesc_definition = "<leader>dt Display quick type definition"
+map <leader>de <Action>(ShowErrorDescription)
+let g:WhichKeyDesc_error_description = "<leader>de Display error description"
+map <leader>d[ <Action>(GotoNextError)
+let g:WhichKeyDesc_goto_next_error = "<leader>d[ Go to next error"
+map <leader>d] <Action>(GotoPreviousError)
+let g:WhichKeyDesc_goto_previous_error = "<leader>d] Go to previous error"
+map <leader>rn <Action>(RenameElement)
+let g:WhichKeyDesc_rename_element = "<leader>rn Rename Element"
+
+""" REFACTOR
+let g:WhichKeyDesc_refactor = "<leader>f Refactor"
+map <leader>fv <Action>(IntroduceVariable)
+let g:WhichKeyDesc_refactor_introduce_var = "<leader>fv Introduce Variable"
+map <leader>fc <Action>(IntroduceConstant)
+let g:WhichKeyDesc_refactor_introduce_const = "<leader>fc Introduce Constant"
+map <leader>ff <Action>(IntroduceField)
+let g:WhichKeyDesc_refactor_introduce_field = "<leader>ff Introduce Field"
+map <leader>fp <Action>(IntroduceParameter)
+let g:WhichKeyDesc_refactor_introduce_parameter = "<leader>fp Introduce Parameter"
+map <leader>fm <Action>(ExtractMethod)
+let g:WhichKeyDesc_refactor_extract_method = "<leader>fm Extract Method"
+map <leader>fr <Action>(RenameElement)
+let g:WhichKeyDesc_refactor_rename_element = "<leader>fr Rename Symbol"
+
+""" RUN
+let g:WhichKeyDesc_run = "<leader>r Run"
+map <leader>rc <Action>(RunClass)
+let g:WhichKeyDesc_run_class = "<leader>rc Run Nearest"
+map <leader>rg <Action>(RunContextGroup)
+let g:WhichKeyDesc_run_context_group = "<leader>rg Run Context Group"
+map <leader>rC <Action>(ChooseRunConfiguration)
+let g:WhichKeyDesc_run_choose_configuration = "<leader>rC Run Configuration"
+map <leader>rr <Action>(Rerun)
+let g:WhichKeyDesc_run_rerun = "<leader>rr Rerun"
+map <leader>rd <Action>(DebugClass)
+let g:WhichKeyDesc_run_debug = "<leader>rd Debug Nearest"
+map <leader>rh <Action>(ImportTests)
+let g:WhichKeyDesc_run_import_tests = "<leader>rh Test History"
+map <leader>rm <Action>(RunMenu)
+let g:WhichKeyDesc_run_menu = "<leader>rm Menu"
+map <leader>rf <Action>(RerunFailedTests)
+let g:WhichKeyDesc_run_failed = "<leader>rf Rerun Failed"
+
+""" DEBUG BREAKPOINTS
+let g:WhichKeyDesc_breakpoint = "<leader>b Breakpoints"
+map <leader>bt <Action>(ToggleLineBreakpoint)
+let g:WhichKeyDesc_breakpoint_toggle = "<leader>bt Toggle Breakpoint"
+map <leader>bv <Action>(ViewBreakpoints)
+let g:WhichKeyDesc_breakpoint_view = "<leader>bv View Breakpoints"
+map <leader>be <Action>(EditBreakpoint)
+let g:WhichKeyDesc_breakpoint_edit = "<leader>be Edit Breakpoint"
+
+""" GIT
+let g:WhichKeyDesc_git = "<leader>g Git"
+let g:WhichKeyDesc_git_commit = "<leader>gc Git Commit"
+map <leader>gc <Action>(CheckinProject)
+let g:WhichKeyDesc_git_history = "<leader>gh Show history for..."
+map <leader>ghm vaf <Action>(Vcs.ShowHistoryForBlock)
+let g:WhichKeyDesc_git_history_method = "<leader>ghm Show history for method TODO VS Code"
+map <leader>ghf <Action>(Vcs.ShowTabbedFileHistory)
+let g:WhichKeyDesc_git_history_file = "<leader>ghf Show history for file TODO VS Code"
+map <leader>gf <Action>(Git.Fetch)
+let g:WhichKeyDesc_git_fetch = "<leader>gf Fetch all branches"
+map <leader>gu <Action>(Vcs.UpdateProject)
+let g:WhichKeyDesc_git_update = "<leader>gu Update Project TODO VS Code"
+map <leader>gp <Action>(Vcs.Push)
+let g:WhichKeyDesc_git_push = "<leader>gp Push to remote"
+map <leader>gbs <Action>(Git.Branches)
+let g:WhichKeyDesc_git_branches = "<leader>gbs Show branches TODO VS Code"
+map <leader>gn <Action>(Git.CreateNewBranch)
+let g:WhichKeyDesc_git_new_branch = "<leader>gn Create new Branch"
+
+let g:WhichKeyDesc_g = "g General"
+let g:WhichKeyDesc_g_hash = "g# Search Word Backward"
+let g:WhichKeyDesc_g_dollar = "g$ Go To Last Screen Column"
+let g:WhichKeyDesc_g_amp = "g& Repeat Last Find & Replace"
+let g:WhichKeyDesc_g_quote = "g' Go To Mark"
+let g:WhichKeyDesc_g_open_parentheses = "g( Previous Sentence End"
+let g:WhichKeyDesc_g_close_parentheses = "g) Nex Sentence End"
+let g:WhichKeyDesc_g_astrix = "g* Search Forward"
+let g:WhichKeyDesc_g_0 = "g0 Start of Line"
+let g:WhichKeyDesc_g_D = "gD Go To Declaration"
+let g:WhichKeyDesc_g_E = "gE Backwards end of WORDS"
+let g:WhichKeyDesc_g_caret = "g^ First Non-blank Char"
+let g:WhichKeyDesc_g_underscore = "g_ Last Non-blank Char"
+let g:WhichKeyDesc_g_backtick = "g` Go to mark"
+let g:WhichKeyDesc_g_c = "gc Comment"
+let g:WhichKeyDesc_g_cc = "gcc Comment Line"
+let g:WhichKeyDesc_g_cu = "gcu Commentary"
+let g:WhichKeyDesc_go_to_declaration = "gd Go to Declaration"
+let g:WhichKeyDesc_go_to_first_line = "gg Go to First Line"
+let g:WhichKeyDesc_g_h = "gh Select Mode Char"
+let g:WhichKeyDesc_g_j = "gj Down Not Linewise"
+let g:WhichKeyDesc_g_k = "gk Up Not Linewise"
+let g:WhichKeyDesc_g_n = "gn Select Next Search"
+let g:WhichKeyDesc_g_p = "gp Paste, Put cursor after"
+let g:WhichKeyDesc_g_q = "gq Format Lines With Motion"
+let g:WhichKeyDesc_g_rr = "grr Replace Line With Register"
+let g:WhichKeyDesc_g_t = "gt Next Tab"
+let g:WhichKeyDesc_g_u = "gu Lower Case with Motion"
+let g:WhichKeyDesc_g_v = "gv Visual Mode Last Area"
+let g:WhichKeyDesc_g_tilde = "g~ Change Case with Motion"
+let g:WhichKeyDesc_g_N = "gN Select Previous Search"
+let g:WhichKeyDesc_g_P = "gP Paste, Put Cursor Before"
+let g:WhichKeyDesc_g_T = "gT Previous Tab"
+let g:WhichKeyDesc_g_U = "gU Upper Case with Motion"
+
+let g:WhichKeyDesc_z = "z Zone"
+let g:WhichKeyDesc_z_plus = "z+ Go To Last Line In View"
+let g:WhichKeyDesc_z_minus = "z- Scroll Current Line To Bottom"
+let g:WhichKeyDesc_z_dot = "z. Center Current Line"
+let g:WhichKeyDesc_z_C = "zC Collapse Recursively"
+let g:WhichKeyDesc_z_H = "zH Scroll Half Right"
+let g:WhichKeyDesc_z_L = "zL Scroll Half Left"
+let g:WhichKeyDesc_z_M = "zM Collapse All"
+let g:WhichKeyDesc_z_O = "zO Expand Recursively"
+let g:WhichKeyDesc_z_R = "zR Expand All"
+let g:WhichKeyDesc_zc = "zc Collapse"
+let g:WhichKeyDesc_zo = "zo Expand"

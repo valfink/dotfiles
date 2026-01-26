@@ -1,0 +1,285 @@
+{
+    "diffEditor.maxComputationTime": 0,
+    "workbench.colorTheme": "Default Light Modern",
+    "go.toolsManagement.autoUpdate": true,
+    "git.autofetch": true,
+    "go.addTags": {
+        "promptForTags": true
+    },
+    "git.confirmSync": false,
+    "github.copilot.nextEditSuggestions.enabled": true,
+    "vim.highlightedyank.enable": true,
+    "vim.leader": " ",
+    "vim.startofline": false,
+    "vim.useSystemClipboard": true,
+    "vim.normalModeKeyBindings": [
+
+
+        {
+            // clear highlighted search results
+            "before": [ "<leader>", "c" ],
+            "commands": [ ":nohl" ]
+        },
+        // --------- NAVIGATION ---------
+        {
+            // go back
+            "before": [ "g", "b" ],
+            "commands": [ "workbench.action.navigateBack" ]
+        },
+        {
+            // go forward
+            "before": [ "g", "f" ],
+            "commands": [ "workbench.action.navigateForward" ]
+        },
+        {
+            // go to type definition
+            "before": [ "<leader>", "D" ],
+            "commands": [ "editor.action.goToTypeDefinition" ]
+        },
+        {
+            // go to implementation
+            "before": [ "g", "i" ],
+            "commands": [ "editor.action.goToImplementation" ]
+        },
+        {
+            // navigate to next/previous error
+            "before": [ "<leader>", "d", "[" ],
+            "commands": [ "editor.action.marker.next" ]
+        },
+        {
+            // navigate to next/previous error
+            "before": [ "<leader>", "d", "]" ],
+            "commands": [ "editor.action.marker.prev" ]
+        },
+        // --------- DISPLAY POPUPS ---------
+        {
+            // show references popup TODO
+            "before": [ "<leader>", "d", "r" ],
+            "commands": [ "editor.action.referenceSearch.trigger" ]
+        },
+        {
+            // show method info popup
+            "before": [ "<leader>", "d", "h" ],
+            "commands": [ "editor.action.showHover" ]
+        },
+        {
+            // show code actions ("intentions")
+            "before": [ "<leader>", "d", "i" ],
+            "commands": [ "editor.action.quickFix" ]
+        },
+        // --------- GIT ---------
+        {
+            // stage all changes & open commit dialog
+            "before": [ "<leader>", "g", "c" ],
+            "commands": [ "git.stageAll", "workbench.scm.focus" ]
+        },
+        {
+            // fetch from git remote
+            "before": [ "<leader>", "g", "f" ],
+            "commands": [ "git.fetch" ]
+        },
+        {
+            // push to git remote
+            "before": [ "<leader>", "g", "p" ],
+            "commands": [ "git.push" ]
+        },
+        {
+            // checkout branch TODO IntelliJ
+            "before": [ "<leader>", "g", "b", "c" ],
+            "commands": [ "git.checkout" ]
+        },
+        {
+            // rebase current branch TODO IntelliJ
+            "before": [ "<leader>", "g", "b", "r" ],
+            "commands": [ "git.rebase" ]
+        },
+        {
+            // merge branch into current branch TODO IntelliJ
+            "before": [ "<leader>", "g", "b", "m" ],
+            "commands": [ "git.merge" ]
+        },
+        // --------- WINDOW MANAGEMENT ---------
+        {
+            // toggle sidebar visibility
+            "before": [ "<leader>", "v", "b" ],
+            "commands": [ "workbench.action.toggleSidebarVisibility" ]
+        },
+        {
+            // hide all panels
+            "before": [ "<leader>", "v", "h" ],
+            "commands": [ "workbench.action.closeSidebar", "workbench.action.closeAuxiliaryBar", "workbench.action.closePanel" ]
+        },
+        {
+            // show TODOs in sidebar
+            "before": [ "<leader>", "v", "t" ],
+            "commands": [ "todo-tree-view.focus" ]
+        },
+        {
+            // show file explorer in sidebar
+            "before": [ "<leader>", "v", "x" ],
+            "commands": [ "workbench.view.explorer" ]
+        },
+        {
+            // close current editor tab
+            "before": [ "<leader>", "v", "w", "c" ],
+            "commands": [ "workbench.action.closeActiveEditor" ]
+        },
+        {
+            // close other editor tabs
+            "before": [ "<leader>", "v", "w", "o" ],
+            "commands": [ "workbench.action.closeOtherEditors" ]
+        },
+        // --------- EDITOR SPLIT MANAGEMENT ---------
+        {
+            // move editor to right split
+            "before": [ "<C-w>", "L" ],
+            "commands": [ "workbench.action.moveEditorToRightGroup" ]
+        },
+        {
+            // move editor to left split
+            "before": [ "<C-w>", "H" ],
+            "commands": [ "workbench.action.moveEditorToLeftGroup" ]
+        },
+        {
+            // move editor to upper split
+            "before": [ "<C-w>", "K" ],
+            "commands": [ "workbench.action.moveEditorToAboveGroup" ]
+        },
+        {
+            // move editor to lower split
+            "before": [ "<C-w>", "J" ],
+            "commands": [ "workbench.action.moveEditorToBelowGroup" ]
+        },
+        {
+            // toggle maximize editor split
+            "before": [ "<C-w>", "<space>" ],
+            "commands": [ "workbench.action.toggleEditorWidths" ]
+        },
+        {
+            // join all editor splits
+            "before": [ "<C-w>", "w" ],
+            "commands": [ "workbench.action.joinAllGroups" ]
+        },
+        // --------- BREAKPOINTS ---------
+        {
+            // toggle breakpoint
+            "before": [ "<leader>", "b", "t" ],
+            "commands": [ "editor.debug.action.toggleBreakpoint" ]
+        },
+        {
+            // view breakpoints list
+            "before": [ "<leader>", "b", "v" ],
+            "commands": [ "workbench.debug.viewlet.action.showBreakpoints" ]
+        },
+        {
+            // edit breakpoint
+            "before": [ "<leader>", "b", "e" ],
+            "commands": [ "editor.debug.action.editBreakpoint" ]
+        }
+    ],
+    "vim.normalModeKeyBindingsNonRecursive": [
+
+        {
+            // keep cursor centered when scrolling
+            "before": [ "<C-d>" ],
+            "after": [ "<C-d>", "z", "z" ]
+        },
+        {
+            // keep cursor centered when scrolling
+            "before": [ "<C-u>" ],
+            "after": [ "<C-u>", "z", "z" ]
+        }
+        
+    ],
+    "vim.hlsearch": true,
+    "editor.lineNumbers": "relative",
+    "vim.highlightedyank.color": "rgba(250, 240, 170, 0.9)",
+    "vim.highlightedyank.textColor": "rgb(0, 0, 0)",
+    "vim.highlightedyank.duration": 300,
+    "vim.easymotion": true,
+    "vim.timeout": 10000,
+    "vim.visualModeKeyBindingsNonRecursive": [
+        {
+            // paste over selection without yanking it
+            "before": [ "<leader>", "p" ],
+            "after": [ "\"_dP" ]
+        }
+    ],
+    "todo-tree.regex.regexCaseSensitive": false,
+    "todo-tree.highlights.useColourScheme": true,
+    "todo-tree.tree.expanded": true,
+    "todo-tree.tree.showCountsInTree": true,
+    "todo-tree.tree.flat": true,
+    "vim.handleKeys": {
+        "<C-d>": true,
+        "<C-s>": false,
+        "<C-z>": false
+    },
+    "git.openRepositoryInParentFolders": "always",
+    "git.enableSmartCommit": true,
+    "vim.visualModeKeyBindings": [
+        // --------- REFACTORING ---------
+        {
+            // extract variable TODO
+            "before": [ "<leader>", "f", "v" ],
+            "commands": [ {
+                    "command": "editor.action.codeAction",
+                    "args": { "kind": "refactor.extract.variable" }
+                } ]
+        },
+        {
+            // extract constant
+            "before": [ "<leader>", "f", "c" ],
+            "commands": [ {
+                    "command": "editor.action.codeAction",
+                    "args": { "kind": "refactor.extract.constant" }
+                } ]
+        },
+        {
+            // extract field
+            "before": [ "<leader>", "f", "f" ],
+            "commands": [ {
+                    "command": "editor.action.codeAction",
+                    "args": { "kind": "refactor.extract.field" }
+                } ]
+        },
+        {
+            // extract parameter
+            "before": [ "<leader>", "f", "p" ],
+            "commands": [ {
+                    "command": "editor.action.codeAction",
+                    "args": { "kind": "refactor.extract.parameter" }
+                } ]
+        },
+        {
+            // extract method
+            "before": [ "<leader>", "f", "m" ],
+            "commands": [ {
+                    "command": "editor.action.codeAction",
+                    "args": { "kind": "refactor.extract.function" }
+                } ]
+        },
+        {
+            // rename symbol
+            "before": [ "<leader>", "f", "n" ],
+            "commands": [ "editor.action.rename" ]
+        },
+        // ---------- INDENTATION ---------
+        {
+            "before": [
+                ">"
+            ],
+            "commands": [
+                "editor.action.indentLines"
+            ]
+        },
+        {
+            "before": [
+                "<"
+            ],
+            "commands": [
+                "editor.action.outdentLines"
+            ]
+        }
+    ],
+}
