@@ -18,7 +18,7 @@ stow_folder() {
     fi
 
     # Run the stow command
-    echo "Running stow command for $source..."
+    printf "Running stow command for: %20s -> %s\n" "$source" "$target"
     stow -t "$target" "$source"
 }
 
@@ -29,6 +29,8 @@ case "$DOTFILES_ENV" in
         stow_folder "$HOME/" zsh
         stow_folder "$HOME/" ideavim
         stow_folder "$HOME/Library/Application Support/Code/User/" vscode
+        stow_folder "$HOME/.config/github-copilot/intellij/" copilot-prompts
+        stow_folder "$HOME/Library/Application Support/Code/User/prompts/" copilot-prompts
         ;;
     *)
         echo "Invalid DOTFILES_ENV value. Please set it to 'work'."
