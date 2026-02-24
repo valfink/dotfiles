@@ -4,6 +4,7 @@ font-meslo-lg-nerd-font
 jq
 jwt-cli
 lua
+maven
 neovim
 node
 opentofu

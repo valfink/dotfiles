@@ -13,8 +13,6 @@
     "vim.startofline": false,
     "vim.useSystemClipboard": true,
     "vim.normalModeKeyBindings": [
-
-
         {
             // clear highlighted search results
             "before": [ "<leader>", "c" ],
@@ -77,6 +75,11 @@
             // fetch from git remote
             "before": [ "<leader>", "g", "f" ],
             "commands": [ "git.fetch" ]
+        },
+        {
+            // update project with latest changes from git remote
+            "before": [ "<leader>", "g", "u" ],
+            "commands": [ "git.pull" ]
         },
         {
             // push to git remote
@@ -261,25 +264,32 @@
         },
         {
             // rename symbol
-            "before": [ "<leader>", "f", "n" ],
+            "before": [ "<leader>", "f", "r" ],
             "commands": [ "editor.action.rename" ]
         },
-        // ---------- INDENTATION ---------
+        // ---------- FORMATTING ---------
         {
-            "before": [
-                ">"
-            ],
-            "commands": [
-                "editor.action.indentLines"
-            ]
+            // reformat selection TODO INTELLIJ
+            "before": [ "<leader>", "s", "f" ],
+            "commands": [ "editor.action.formatSelection" ]
         },
         {
-            "before": [
-                "<"
-            ],
-            "commands": [
-                "editor.action.outdentLines"
-            ]
+            // indent selection TODO INTELLIJ
+            "before": [ "<leader>", "s", "i" ],
+            "commands": [ "editor.action.indentLines" ]
+        },
+        {
+            // outdent selection TODO INTELLIJ
+            "before": [ "<leader>", "s", "o" ],
+            "commands": [ "editor.action.outdentLines" ]
+        }
+    ],
+    "gitlens.ai.model": "vscode",
+    "gitlens.ai.vscode.model": "copilot:gpt-4.1",
+    "sonarlint.connectedMode.connections.sonarqube": [
+        {
+            "serverUrl": "https://sonar.eon-cds.de",
+            "connectionId": "E.ON"
         }
     ],
 }

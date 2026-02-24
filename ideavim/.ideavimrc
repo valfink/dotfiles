@@ -74,6 +74,8 @@ let g:WhichKeyDesc_activatetodo = "<leader>vt Activate TODO Tool Window"
 map <leader>ve <Action>(ActivateEndpointsToolWindow)
 let g:WhichKeyDesc_activateendpoints = "<leader>ve Activate Endpoints Tool Window"
 map <leader>vg <Action>(ActivateVersionControlToolWindow)
+let g:WhichKeyDesc_activateendpoints = "<leader>ve Activate Endpoints Tool Window"
+map <leader>vx <Action>(SelectInProjectView)
 let g:WhichKeyDesc_activategitwindow = "<leader>vg Activate Version Control Tool Window"
 map <leader>vwc <Action>(CloseContent)
 let g:WhichKeyDesc_closecurrenteditor = "<leader>vwc Close current editor tab"
@@ -173,13 +175,13 @@ let g:WhichKeyDesc_git_history_file = "<leader>ghf Show history for file TODO VS
 map <leader>gf <Action>(Git.Fetch)
 let g:WhichKeyDesc_git_fetch = "<leader>gf Fetch all branches"
 map <leader>gu <Action>(Vcs.UpdateProject)
-let g:WhichKeyDesc_git_update = "<leader>gu Update Project TODO VS Code"
+let g:WhichKeyDesc_git_update = "<leader>gu Update Project"
 map <leader>gp <Action>(Vcs.Push)
 let g:WhichKeyDesc_git_push = "<leader>gp Push to remote"
 map <leader>gbs <Action>(Git.Branches)
-let g:WhichKeyDesc_git_branches = "<leader>gbs Show branches TODO VS Code"
-map <leader>gn <Action>(Git.CreateNewBranch)
-let g:WhichKeyDesc_git_new_branch = "<leader>gn Create new Branch"
+let g:WhichKeyDesc_git_branches_show = "<leader>gbs Show branches TODO VS Code"
+map <leader>gbc <Action>(Git.CreateNewBranch)
+let g:WhichKeyDesc_git_branches_create = "<leader>gbc Create new Branch"
 
 let g:WhichKeyDesc_g = "g General"
 let g:WhichKeyDesc_g_hash = "g# Search Word Backward"
