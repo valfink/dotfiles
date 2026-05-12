@@ -1,6 +1,6 @@
 {
     "diffEditor.maxComputationTime": 0,
-    "workbench.colorTheme": "Default Light Modern",
+    "workbench.colorTheme": "Light Modern",
     "go.toolsManagement.autoUpdate": true,
     "git.autofetch": true,
     "go.addTags": {
@@ -13,6 +13,14 @@
     "vim.startofline": false,
     "vim.useSystemClipboard": true,
     "vim.normalModeKeyBindings": [
+        {
+            // inline variable
+            "before": [ "<leader>", "f", "i" ], // todo das geht in mehreren modi
+            "commands": [ {
+                    "command": "editor.action.codeAction",
+                    "args": { "kind": "refactor.inline" }
+                } ]
+        },
         {
             // clear highlighted search results
             "before": [ "<leader>", "c" ],
@@ -263,6 +271,14 @@
                 } ]
         },
         {
+            // inline variable
+            "before": [ "<leader>", "f", "i" ],
+            "commands": [ {
+                    "command": "editor.action.codeAction",
+                    "args": { "kind": "refactor.inline" }
+                } ]
+        },
+        {
             // rename symbol
             "before": [ "<leader>", "f", "r" ],
             "commands": [ "editor.action.rename" ]
@@ -292,4 +308,5 @@
             "connectionId": "E.ON"
         }
     ],
+    "git.addAICoAuthor": "off",
 }

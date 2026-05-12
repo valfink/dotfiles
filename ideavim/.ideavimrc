@@ -39,7 +39,7 @@ Plug 'easymotion/vim-easymotion'
 " use f or F to search with two letters in the current and next line
 map <leader><leader>f <Plug>(easymotion-f)
 map <leader><leader>F <Plug>(easymotion-F)
-Plug 'justinmk/vim-sneak'
+" Plug 'justinmk/vim-sneak' (deactivated, gets on my nerves)
 " Surround text with braces etc
 Plug 'tpope/vim-surround'
 " Provide 'argument' text object (e.g. 'dia' to delete the argument without comma)
@@ -95,7 +95,9 @@ nmap <C-w>> <Action>(StretchSplitToRight)
 nmap <C-w><space> <Action>(MaximizeEditorInSplit)
 
 """ GOTO
-map gs <Action>(FileStructurePopup)
+""" todo vs code
+map gs <Action>(GotoSuperMethod)
+map <leader>S <Action>(FileStructurePopup)
 map gmu <Action>(MethodUp)
 map gmd <Action>(MethodDown)
 map gi <Action>(GotoImplementation)
@@ -117,8 +119,6 @@ map <leader>d[ <Action>(GotoNextError)
 let g:WhichKeyDesc_goto_next_error = "<leader>d[ Go to next error"
 map <leader>d] <Action>(GotoPreviousError)
 let g:WhichKeyDesc_goto_previous_error = "<leader>d] Go to previous error"
-map <leader>rn <Action>(RenameElement)
-let g:WhichKeyDesc_rename_element = "<leader>rn Rename Element"
 
 """ REFACTOR
 let g:WhichKeyDesc_refactor = "<leader>f Refactor"
@@ -130,10 +130,22 @@ map <leader>ff <Action>(IntroduceField)
 let g:WhichKeyDesc_refactor_introduce_field = "<leader>ff Introduce Field"
 map <leader>fp <Action>(IntroduceParameter)
 let g:WhichKeyDesc_refactor_introduce_parameter = "<leader>fp Introduce Parameter"
+map <leader>fi <Action>(Inline)
+let g:WhichKeyDesc_refactor_inline_var = "<leader>fi Inline Variable"
 map <leader>fm <Action>(ExtractMethod)
 let g:WhichKeyDesc_refactor_extract_method = "<leader>fm Extract Method"
 map <leader>fr <Action>(RenameElement)
 let g:WhichKeyDesc_refactor_rename_element = "<leader>fr Rename Symbol"
+map <leader>fs <Action>(SurroundWith)
+let g:WhichKeyDesc_refactor_surround = "<leader>fs Surround With..."
+
+""" SELECTION FORMATTING
+vmap <leader>sf <Action>(ReformatCode)
+let g:WhichKeyDesc_selection_format = "<leader>sf Format Selection"
+vmap <leader>si <Action>(EditorIndentSelection)
+let g:WhichKeyDesc_selection_indent = "<leader>si Indent Selection"
+vmap <leader>so <Action>(EditorUnindentSelection)
+let g:WhichKeyDesc_selection_outdent = "<leader>so Outdent Selection"
 
 """ RUN
 let g:WhichKeyDesc_run = "<leader>r Run"
